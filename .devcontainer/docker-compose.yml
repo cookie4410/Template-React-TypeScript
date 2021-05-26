@@ -1,0 +1,24 @@
+version: '3.8'
+services:
+  react-app-dev:
+    build: ./
+    container_name: react-app-dev
+    ports:
+      - '443:443'
+    tty: true
+    working_dir: /var/app-src
+    volumes:
+      - ..:/var/app-src:delegated
+      - ~/.ssh:/root/.ssh:delegated,ro
+  nginx:
+    image: nginx:1.19.0
+    depends_on:
+      - react-app-dev
+    ports:
+      - '80:80'
+    environment:
+      ACCESS_CONTROL_ALLOW_ORIGIN: '"*"'
+      NGINX_ENVSUBST_TEMPLATE_DIR: /var/www/nginx_setting
+    volumes:
+      - ../build:/var/www/html:delegated,ro
+      - ./nginx_setting:/var/www/nginx_setting:delegated,ro

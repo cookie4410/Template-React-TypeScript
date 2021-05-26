@@ -1,0 +1,51 @@
+{
+  "dockerComposeFile": ["docker-compose.yml"],
+  "extensions": [
+    "dbaeumer.vscode-eslint",
+    "eamodio.gitlens",
+    "esbenp.prettier-vscode",
+    "kingsimba.tsdoc-comment",
+    "richie5um2.vscode-sort-json",
+    "sanaajani.taskrunnercode",
+    "streetsidesoftware.code-spell-checker",
+    "tyriar.sort-lines",
+    "VisualStudioExptTeam.vscodeintellicode"
+  ],
+  "name": "react-app-dev",
+  "postCreateCommand": "npm install",
+  "remoteEnv": {
+    "EDITOR": "code --wait"
+  },
+  "service": "react-app-dev",
+  "settings": {
+    "cSpell.allowCompoundWords": true,
+    "cSpell.enabledLanguageIds": ["JavaScript"],
+    "cSpell.language": "en",
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    },
+    "emmet.includeLanguages": {
+      "javascript": "javascriptreact"
+    },
+    "emmet.syntaxProfiles": {
+      "html": {
+        "attr_quotes": "single"
+      },
+      "jsx": {
+        "self_closing_tag": true
+      }
+    },
+    "emmet.triggerExpansionOnTab": true,
+    "intelephense.diagnostics.undefinedMethods": false,
+    "intelephense.diagnostics.undefinedTypes": false,
+    "javascript.format.enable": false,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+    "editor.wordSeparators": "`~!@#$%^&*()=+[{]}\\|;:'\",.<>/?、。　",
+    "terminal.integrated.defaultProfile.linux": "/bin/bash",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue"
+  },
+  "shutdownAction": "stopCompose",
+  "workspaceFolder": "/var/app-src"
+}

@@ -1,0 +1,53 @@
+{
+  "version": "2.0.0",
+  "options": {
+    "env": {}
+  },
+  "inputs": [
+    // NPM用インプット //
+    {
+      "id": "npm-package-name",
+      "description": "Input package name",
+      "type": "promptString"
+    }
+  ],
+  "tasks": [
+    // NPM関連
+    {
+      "label": "NPM: Initialize NPM Packages",
+      "detail": "NPMを使用してpackage.json内のパッケージを全て再インストールする",
+      "type": "shell",
+      "presentation": {
+        "clear": true
+      },
+      "command": ["rm -r node_modules && npm install"]
+    },
+    {
+      "label": "NPM: Intall a package for development",
+      "detail": "NPMを使用して開発用に必要なパッケージをインストール",
+      "type": "shell",
+      "presentation": {
+        "clear": true
+      },
+      "command": ["npm i -D ${input:npm-package-name}"]
+    },
+    {
+      "label": "NPM: Install the packages required for operation",
+      "detail": "NPMを使用して動作に必要なパッケージをインストール",
+      "type": "shell",
+      "presentation": {
+        "clear": true
+      },
+      "command": ["npm i ${input:npm-package-name} --save"]
+    },
+    {
+      "label": "NPM: Install the types package",
+      "detail": "NPMを使用して開発用の型パッケージをインストール",
+      "type": "shell",
+      "presentation": {
+        "clear": true
+      },
+      "command": ["npm i -D @types/${input:npm-package-name}"]
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+server {
+  listen       80;
+  server_name  my.example.com;
+  charset      utf-8;
+
+  # ドキュメントルートを指定.
+  root /var/www/html;
+  index index.html;
+
+  # リクエストされたリソースがなければ、index.htmlを返却.
+  location / {
+    try_files $uri /index.html;
+  }
+}
